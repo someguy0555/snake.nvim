@@ -298,7 +298,7 @@ local function init_snake()
     -- print("width: " .. winfo.snake_info.width)
     -- print("height: " .. winfo.snake_info.height)
 
-    assert(not (winfo.snake_info.width < 15 or winfo.snake_info.height < 20))
+    -- assert(not (winfo.snake_info.width < 15 or winfo.snake_info.height < 20))
 
     winfo.buf = vim.api.nvim_create_buf(false, true)  -- Create a scratch buffer
     assert(winfo.buf ~= 0)
