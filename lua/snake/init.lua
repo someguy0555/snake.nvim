@@ -192,7 +192,6 @@ local function run_snake(winfo)
             function()
                 vim.api.nvim_buf_delete(winfo.buf, { force = true })
                 -- vim.api.nvim_win_close(winfo.window, true) -- Apparently, you don't need this?
-                instance_already_exists = false
             end
         )
     end
@@ -201,7 +200,9 @@ local function run_snake(winfo)
         callback = function(args)
             if args.event == "WinClosed" and tonumber(args.match) == winfo.window then
                 winfo.is_closed = true
-                -- winfo.snake_info.is_over = true -- Apparently, you don't need this?
+                -- instance_already_exists = false
+                winfo.snake_info.is_over = true
+                instance_already_exists = false
                 return true
             end
         end,
